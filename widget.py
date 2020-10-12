@@ -25,7 +25,7 @@ def main():
         a=requests.get("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Cethereum&vs_currencies=usd%2Cusd").json()
         Btc_Price.configure(text=str(a['bitcoin']['usd'])+"$")
         Eth_Price.configure(text=str(a['ethereum']['usd'])+"$")
-        root.after(15000,Price)
+        root.after(15000,Price) # coingecko max 150 queries per minute 
         print("refreshed at {}  ".format(str(ctime())))
     
     Price()
